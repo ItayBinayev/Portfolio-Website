@@ -10,7 +10,7 @@ export const projects = [
   },
   {
     title: 'Terminal Simulator',
-    description:"Using React, ASP.NET, MSSQL& NLog Project , where creating every couple seconds a flight and changing flight position where in 4,6,7 places can be only a single flight and when flight is leaving those place an event is triggered and new flight getting in. ",
+    description:"A project using React, ASP.NET, MSSQL, and NLog. The goal of this project is to create flights at regular intervals and update their positions. In this system, there can only be a single flight in places 4, 6, and 7. Whenever a flight leaves one of these places, an event is triggered, and a new flight takes its place. ",
     image: '/images/TerminalSimulator.png',
     tags: ['React', 'ASP.NET','MSSQL','NLog'],
     source: 'https://github.com/ItayBinayev/TerminalSimulator',
