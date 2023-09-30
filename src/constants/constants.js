@@ -5,7 +5,7 @@ export const projects = [
       image: '/images/ShortenURL.png',
       tags: ['Javascript', 'ASP.NET', 'Bootstrap', 'MSSQL'],
     source: 'https://github.com/ItayBinayev/Shorten-URL-Project',
-    visit: 'https://github.com/ItayBinayev/Shorten-URL-Project',
+    visit: '',
     id: 0,
   },
   {
@@ -14,8 +14,26 @@ export const projects = [
     image: '/images/TerminalSimulator.png',
     tags: ['React', 'ASP.NET','MSSQL','NLog'],
     source: 'https://github.com/ItayBinayev/TerminalSimulator',
-    visit: 'https://github.com/ItayBinayev/TerminalSimulator',
+    visit: '',
     id: 1,
+  },
+  {
+    title: 'E-Shop (Like Amazon)',
+    description:"An Amazon-style e-commerce project using Node.js, Express, MongoDB, and React.js it showcases a sleek interface, seamless shopping cart, and efficient product management. ",
+    image: '/images/AmazonProject.png',
+    tags: ['MongoDB', 'Express','React','Node.js'],
+    source: 'https://github.com/ItayBinayev/amazon-frontend',
+    visit: 'https://amazon-frontend-ten.vercel.app/',
+    id: 2,
+  },
+  {
+    title: 'Streaming System (Like Netflix)',
+    description:"A highly professional project utilizing Node.js, Express, MongoDB, and React.js. The project emulates a Netflix-like platform and icorporates a robust authentication system using JWT.  ",
+    image: '/images/NetflixProject.png',
+    tags: ['MongoDB', 'Express','React','Node.js'],
+    source: 'https://github.com/ItayBinayev/netflix-frontend',
+    visit: 'https://netflix-frontend-phi.vercel.app/',
+    id: 3,
   },
   
 ];

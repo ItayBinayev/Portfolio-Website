@@ -29,6 +29,10 @@ const Projects = () => (
         <UtilityList>
           <ExternalLinks href={project.source} target='_blank'>Code
             </ExternalLinks>
+            {project.visit &&
+            <ExternalLinks href={project.visit} target='_blank'>Visit
+            </ExternalLinks>
+            }
         </UtilityList>
         </UtilityContainer>
        </BlogCard>
