@@ -12,9 +12,9 @@ export const Container = styled.div`
   z-index: 100;
   background: ${({ scrolled }) => scrolled
     ? 'rgba(7, 9, 26, 0.88)'
-    : 'rgba(7, 9, 26, 0.5)'};
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+    : 'transparent'};
+  backdrop-filter: ${({ scrolled }) => scrolled ? 'blur(24px)' : 'none'};
+  -webkit-backdrop-filter: ${({ scrolled }) => scrolled ? 'blur(24px)' : 'none'};
   border-bottom: 1px solid ${({ scrolled }) => scrolled
     ? 'rgba(255,255,255,0.08)'
     : 'transparent'};
