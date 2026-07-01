@@ -1,154 +1,126 @@
+import styled from 'styled-components';
 
-import styled from 'styled-components'
-
-export const CarouselContainer = styled.ul`
-  max-width: 1040px;
-  background: #0C1954;
-  padding: 0rem;
-  list-style:none;
-  display: flex;
-  justify-content: space-between; 
-  /* overflow-x: hidden; */
-
-  margin-left: 32px;
-  &:first-of-type{
-    margin-left: 0px;
-  }
-
-  margin-bottom: 80px;
-
-  //remove scrollbar
-  scrollbar-width: none;  
-   &::-webkit-scrollbar {
-     display: none;
-   }
-
-  @media ${props => props.theme.breakpoints.sm} {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    touch-action: pan-x;
-    justify-content: initial;
-    margin-bottom: 8px;
-  }
-`
-export const CarouselMobileScrollNode = styled.div`
-  @media ${props => props.theme.breakpoints.sm} {
-    display: flex;
-    min-width: ${({ final }) => final ? `120%;` : `min-content`}
-  }
-`
-//#0E131F
-export const CarouselItem = styled.div`
-  background: #0C1954;
-  border-radius: 3px;
-  max-width: 196px;
-
-  @media ${props => props.theme.breakpoints.md} {
-    max-width: 124px;
-  }
-  
-  @media ${props => props.theme.breakpoints.sm} {
-    margin-left: 32px;
-    min-width: 120px;
-    background: #0C1954;
-    padding: 4px;
-    align-content: start;
-    scroll-snap-align: start;
-    border-radius: 3px;
-    overflow: visible;
-    position: relative;
-    height: fit-content;
-    
-    ${(props) => props.active === props.index ? `opacity: 1` : `opacity: 0.5`}; 
-  }
-`
-
-export const CarouselItemTitle = styled.h4`
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 32px;
-  letter-spacing: 0.02em;
-  display: flex;
-  /* This gradient is different due to the size of the Title container, it must transition sooner to be visible on the text */
-  background: linear-gradient(121.57deg, #FFFFFF 10%, rgba(255, 255, 255, 0.66) 30.15%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 8px;
-
-  @media ${props => props.theme.breakpoints.md} {
-    font-size: 20px;
-    line-height: 28px;
-    margin-bottom: 4px;
-  }
-  
-  @media ${props => props.theme.breakpoints.sm} {
-    font-size: 16px;
-    line-height: 24px;
-  }
-`
-export const CarouselItemImg = styled.svg`
-  margin-left: 21px;
-  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+export const TimelineWrapper = styled.div`
+  position: relative;
   width: 100%;
+  max-width: 720px;
+  margin: 0 0 4rem;
+  padding: 1rem 0;
+`;
+
+export const TimelineLine = styled.div`
+  position: absolute;
+  left: 80px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(108, 99, 255, 0.5) 10%,
+    rgba(0, 212, 255, 0.5) 90%,
+    transparent 100%
+  );
+  border-radius: 2px;
 
   @media ${props => props.theme.breakpoints.sm} {
-    -webkit-mask-image: none;
-    margin-left: 16px;
-    overflow: visible;
+    left: 20px;
   }
-`
+`;
 
-export const CarouselItemText = styled.p`
-  font-size: 14px;
-  line-height: 22px;
-  letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.75);
-  padding-right: 16px;
+export const TimelineEntry = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3.2rem;
+  position: relative;
+  animation: ${({ index }) => index % 2 === 0 ? 'slideInLeft' : 'slideInRight'} 0.6s ease both;
+  animation-delay: ${({ index }) => index * 0.15}s;
 
-  @media ${props => props.theme.breakpoints.md} {
-    font-size: 12px;
-    line-height: 18px;
-    padding-right: 32px;
+  &:last-child {
+    margin-bottom: 0;
   }
+
   @media ${props => props.theme.breakpoints.sm} {
-    font-size: 10px;
-    line-height: 16px;
-    padding-right: 0;
+    gap: 1.6rem;
   }
-`
-export const CarouselButtons = styled.div`
-  width: 288px;
+`;
 
+export const TimelineYear = styled.div`
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: ${props => props.theme.colors.accent1};
+  min-width: 52px;
+  padding-top: 14px;
+  text-align: right;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+
+  @media ${props => props.theme.breakpoints.sm} {
+    display: none;
+  }
+`;
+
+export const TimelineDot = styled.div`
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6C63FF 0%, #00D4FF 100%);
+  flex-shrink: 0;
+  margin-top: 18px;
+  box-shadow: 0 0 16px rgba(108, 99, 255, 0.5);
+  position: relative;
+  z-index: 1;
+
+  @media ${props => props.theme.breakpoints.sm} {
+    margin-left: 14px;
+    width: 12px;
+    height: 12px;
+  }
+`;
+
+export const TimelineCard = styled.div`
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 1.8rem 2.4rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    border-color: rgba(108, 99, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(108, 99, 255, 0.1);
+  }
+
+  @media ${props => props.theme.breakpoints.sm} {
+    padding: 1.4rem 1.6rem;
+  }
+`;
+
+export const TimelineCardYear = styled.div`
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: ${props => props.theme.colors.accent1};
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
   display: none;
-  visibility: hidden;
 
   @media ${props => props.theme.breakpoints.sm} {
-    display: flex;
-    visibility: visible;
-    margin-bottom: 48px;
+    display: block;
   }
-`
+`;
 
-export const CarouselButton = styled.button`
-  box-sizing: border-box;
-  background: none;
-  padding: 4px;
-  border: none;
-  cursor: pointer;
-  margin-right: 4px;
-  opacity: ${(props) => props.active === props.index ? `1` : `.33`};
-  transform: ${(props) => props.active === props.index ? `scale(1.6)` : `scale(1)`};
+export const TimelineText = styled.p`
+  font-size: 1.55rem;
+  line-height: 2.6rem;
+  color: rgba(240, 244, 255, 0.75);
+  font-family: Inter, sans-serif;
+  font-weight: 400;
 
-  &:focus {
-    outline: none;
+  @media ${props => props.theme.breakpoints.sm} {
+    font-size: 1.4rem;
+    line-height: 2.3rem;
   }
-`
-
-export const CarouselButtonDot = styled.div`
-  background-color: white;
-  border-radius: 10px;
-  margin: auto;
-  width: 3px;
-  height: 3px;
-`
+`;

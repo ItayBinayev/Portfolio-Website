@@ -1,18 +1,24 @@
 export default {
-  // Temp fonts
   fonts: {
     title: "Space Grotesk, sans-serif",
-    main: "Space Grotesk, sans-serif"
+    main: "Inter, Space Grotesk, sans-serif"
   },
-  // Colors for layout
   colors: {
-    primary1: "hsl(204,23.8%,95.9%)",
-    background1: "#0C1954",
-    accent1: "hsl(34.9,98.6%,72.9%)",
-    button: "hsl(205.1,100%,36.1%)",
-    background2: "hsl(232.7,27.3%,23.7%)",
+    background1: "#07091A",
+    background2: "#0D1225",
+    primary1: "#F0F4FF",
+    accent1: "#6C63FF",
+    accent2: "#00D4FF",
+    button: "#6C63FF",
+    border: "rgba(255,255,255,0.07)",
+    muted: "rgba(240,244,255,0.55)",
+    cardBg: "rgba(255,255,255,0.04)",
   },
-  // Breakpoints for responsive design
+  gradients: {
+    main: "linear-gradient(135deg, #6C63FF 0%, #00D4FF 100%)",
+    text: "linear-gradient(135deg, #FFFFFF 20%, rgba(255,255,255,0.65) 100%)",
+    glow: "radial-gradient(ellipse at center, rgba(108,99,255,0.2) 0%, transparent 70%)",
+  },
   breakpoints: {
     sm: 'screen and (max-width: 640px)',
     md: 'screen and (max-width: 768px)',

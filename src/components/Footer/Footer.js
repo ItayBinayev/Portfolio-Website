@@ -1,38 +1,40 @@
 import React from 'react';
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai';
+import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 
-import { SocialIcons } from '../Header/HeaderStyles';
-import { CompanyContainer, FooterWrapper, LinkColumn, LinkItem, LinkList, LinkTitle, Slogan, SocialContainer, SocialIconsContainer } from './FooterStyles';
+import {
+  FooterWrapper, FooterTop, FooterContent,
+  ContactBlock, ContactRow, LinkTitle, LinkItem,
+  FooterRight, Slogan, SocialContainer, SocialIcon
+} from './FooterStyles';
 
-const Footer = () => {
-  return (
-   <FooterWrapper>
-    <LinkList>
-    <LinkColumn>
-    <LinkTitle>Phone Number</LinkTitle>
-    <LinkItem href='tel:054-8055405'>054-8055405</LinkItem>
-    </LinkColumn>
-    <LinkColumn>
-    <LinkTitle>Email</LinkTitle>
-    <LinkItem href='mailto:itaybinayev@gmail.com'>itaybinayev@gmail.com</LinkItem>
-    </LinkColumn>
-    </LinkList>
-    <SocialIconsContainer>
-      <CompanyContainer>
+const Footer = () => (
+  <FooterWrapper>
+    <FooterTop />
+    <FooterContent>
+      <ContactBlock>
+        <ContactRow>
+          <LinkTitle>Phone</LinkTitle>
+          <LinkItem href="tel:054-8055405">054-8055405</LinkItem>
+        </ContactRow>
+        <ContactRow>
+          <LinkTitle>Email</LinkTitle>
+          <LinkItem href="mailto:itaybinayev@gmail.com">itaybinayev@gmail.com</LinkItem>
+        </ContactRow>
+      </ContactBlock>
+
+      <FooterRight>
         <Slogan>Innovating one project at a time.</Slogan>
-      </CompanyContainer>
-      <SocialContainer>
-
-      <SocialIcons href='https://github.com/ItayBinayev' target='_blank'>
-    <AiFillGithub size="3rem"/>
-    </SocialIcons>
-    <SocialIcons href='https://www.linkedin.com/in/itay-binayev/' target='_blank'>
-    <AiFillLinkedin size="3rem"/>
-    </SocialIcons>
-    </SocialContainer>
-    </SocialIconsContainer>
-   </FooterWrapper>
-  );
-};
+        <SocialContainer>
+          <SocialIcon href="https://github.com/ItayBinayev" target="_blank" rel="noopener noreferrer">
+            <AiFillGithub size="2.4rem" />
+          </SocialIcon>
+          <SocialIcon href="https://www.linkedin.com/in/itay-binayev/" target="_blank" rel="noopener noreferrer">
+            <AiFillLinkedin size="2.4rem" />
+          </SocialIcon>
+        </SocialContainer>
+      </FooterRight>
+    </FooterContent>
+  </FooterWrapper>
+);
 
 export default Footer;

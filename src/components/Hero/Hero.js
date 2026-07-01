@@ -1,29 +1,30 @@
 import React from 'react';
 
-import { Section, SectionText, SectionTitle } from '../../styles/GlobalComponents';
+import { SecondaryBtn } from '../../styles/GlobalComponents';
 import Button from '../../styles/GlobalComponents/Button';
-import { LeftSection } from './HeroStyles';
+import { ButtonRow, Greeting, HeroDescription, HeroName, HeroSubtitle, LeftSection } from './HeroStyles';
 
 const handleDownload = () => {
   const link = document.createElement('a');
-  link.href = '/resume/Itay_Binayev.pdf'; // Specify the path to your PDF file in the public folder
-  link.download = 'Itay_Binayev.pdf'; // Specify the desired filename for the downloaded file
+  link.href = '/resume/Itay_Binayev.pdf';
+  link.download = 'Itay_Binayev.pdf';
   link.click();
 };
 
 const Hero = () => (
-  <Section row nopadding>
-    <LeftSection>
-      <SectionTitle main center>
-      Welcome To <br/>
-      Itay Binayev Portfolio
-      </SectionTitle>
-      <SectionText>
-        Im a full-stack and software engineer !
-      </SectionText>
+  <LeftSection>
+    <Greeting>Hi, I&apos;m</Greeting>
+    <HeroName>Itay Binayev</HeroName>
+    <HeroSubtitle>Full Stack &amp; Software Engineer</HeroSubtitle>
+    <HeroDescription>
+      Building modern web experiences with clean code and creative solutions —
+      from backend APIs to polished user interfaces.
+    </HeroDescription>
+    <ButtonRow>
       <Button onClick={handleDownload}>Download CV</Button>
-    </LeftSection>
-  </Section>
+      <SecondaryBtn as="a" href="#projects" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>View Projects</SecondaryBtn>
+    </ButtonRow>
+  </LeftSection>
 );
 
 export default Hero;

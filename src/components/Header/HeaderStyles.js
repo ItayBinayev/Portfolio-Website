@@ -1,131 +1,169 @@
-import { IoIosArrowDropdown } from 'react-icons/io';
 import styled from 'styled-components';
-// padding: 1rem;
+
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 2rem;
-  padding: 1rem;
-  padding-top: 2rem;
-
-  @media ${(props) => props.theme.breakpoints.sm} {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(1, 60px);
-    grid-column-gap: 0.5rem;
-    grid-row-gap: 0.5rem;
-  }
-`;
-export const Div1 = styled.div`
-  grid-area: 1 / 1 / 2 / 2;
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    grid-area: 1 / 1 / 2 / 3;
-  }
-`;
-export const Span = styled.span`
-font-size: 2rem;
-`;
-
-
-// media : grid-area: 2 / 2 / 3 / 5;
-export const Div2 = styled.div`
-  grid-area: 1 / 2 / 2 / 4;
-  display: flex;
-  justify-content: space-around;
-  visibility: visible;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    visibility: hidden;
-  }
-`;
-export const Div3 = styled.div`
-  grid-area: 1 / 5 / 2 / 6;
-  display: flex;
-  justify-content: space-around;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    align-items: center;
-    grid-area: 1 / 4 / 2 / 6;
+  gap: 2rem;
+  padding: 0 48px;
+  height: 70px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: ${({ scrolled }) => scrolled
+    ? 'rgba(7, 9, 26, 0.88)'
+    : 'rgba(7, 9, 26, 0.5)'};
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid ${({ scrolled }) => scrolled
+    ? 'rgba(255,255,255,0.08)'
+    : 'transparent'};
+  transition: background 0.35s ease, border-color 0.35s ease;
+
+  @media ${props => props.theme.breakpoints.sm} {
+    padding: 0 20px;
+    grid-template-columns: auto 1fr auto;
   }
 `;
 
-// Navigation Links
-export const NavLink = styled.span`
-  font-size: 2rem;
-  line-height: 32px;
-  color: rgba(255, 255, 255, 0.75);
-  transition: 0.4s ease;
-  &:hover {
-    color: #fff;
-    opacity: 1;
-    cursor: pointer;
-  }
-  @media ${(props) => props.theme.breakpoints.sm} {
-    padding: 0.5rem;
-  }
-`;
-
-/// DropDown Contact
-export const ContactDropDown = styled.button`
-  border: none;
+export const Div1 = styled.div`
   display: flex;
-  position: relative;
-  background: none;
-  font-size: 1.7rem;
+  align-items: center;
+`;
 
-  line-height: 32px;
-  color: rgba(255, 255, 255, 0.75);
+export const Span = styled.span`
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #F0F4FF;
+  letter-spacing: 0.5px;
+`;
+
+export const Div2 = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.6rem;
+
+  @media ${props => props.theme.breakpoints.sm} {
+    display: none;
+  }
+`;
+
+export const Div3 = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.4rem;
+`;
+
+export const NavLink = styled.a`
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: rgba(240, 244, 255, 0.65);
   cursor: pointer;
-  transition: 0.3s ease;
+  position: relative;
+  transition: color 0.3s ease;
+  letter-spacing: 0.3px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #6C63FF 0%, #00D4FF 100%);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: #F0F4FF;
+    &::after {
+      width: 100%;
+    }
+  }
+`;
+
+export const SocialIcons = styled.a`
+  color: rgba(240, 244, 255, 0.55);
+  display: flex;
+  align-items: center;
+  padding: 7px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+
+  &:hover {
+    color: #6C63FF;
+    border-color: rgba(108, 99, 255, 0.35);
+    background: rgba(108, 99, 255, 0.1);
+  }
+`;
+
+export const HamburgerButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  color: rgba(240, 244, 255, 0.75);
+  cursor: pointer;
+  padding: 7px;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #F0F4FF;
+  }
 
   &:focus {
     outline: none;
   }
-  &:hover {
-    color: #fff;
-  }
 
-  @media ${(props) => props.theme.breakpoints.sm} {
-    padding: 0.4rem 0;
-  }
-  @media ${(props) => props.theme.breakpoints.md} {
-    padding: 0;
+  @media ${props => props.theme.breakpoints.sm} {
+    display: flex;
   }
 `;
 
-export const NavProductsIcon = styled(IoIosArrowDropdown)`
-  margin-left: 8px;
+export const MobileMenuOverlay = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: rgba(7, 9, 26, 0.55);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease;
+`;
+
+export const MobileMenu = styled.nav`
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: rgba(10, 14, 35, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 16px 20px;
   display: flex;
-  align-self: center;
-  transition: 0.3s ease;
-  opacity: ${({ isOpen }) => (isOpen ? '1' : '.75')};
-  transform: ${({ isOpen }) => (isOpen ? 'scaleY(-1)' : 'scaleY(1)')};
-
-  &:hover {
-    opacity: 1;
-  }
-
-  @media ${(props) => props.theme.breakpoints.sm} {
-    margin: 2px 0 0 2px;
-    width: 15px;
-  }
+  flex-direction: column;
+  gap: 2px;
+  animation: fadeInUp 0.22s ease;
 `;
 
+export const MobileNavLink = styled.a`
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: rgba(240, 244, 255, 0.75);
+  padding: 14px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  display: block;
 
-// Social Icons 
-
-export const SocialIcons = styled.a`
-transition: 0.3s ease;
-color: white;
-border-radius: 50px;
-  padding: 8px;
-&:hover {
-    background-color: #212d45;
-    transform: scale(1.2);
-    cursor: pointer;
-    
+  &:hover {
+    background: rgba(108, 99, 255, 0.1);
+    color: #F0F4FF;
   }
-`
+`;
