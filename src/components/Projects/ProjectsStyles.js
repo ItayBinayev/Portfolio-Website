@@ -54,7 +54,7 @@ export const BlogCard = styled.div`
 export const ImgWrapper = styled.div`
   position: relative;
   overflow: hidden;
-  height: 200px;
+  height: 260px;
 
   &::after {
     content: '';
@@ -70,7 +70,7 @@ export const ImgWrapper = styled.div`
   }
 
   @media ${props => props.theme.breakpoints.sm} {
-    height: 180px;
+    height: 220px;
   }
 `;
 

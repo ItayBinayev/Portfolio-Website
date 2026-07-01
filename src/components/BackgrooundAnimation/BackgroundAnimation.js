@@ -11,7 +11,7 @@ const OrbWrapper = styled.div`
   justify-content: center;
   overflow: visible;
 
-  @media ${props => props.theme.breakpoints.sm} {
+  @media ${props => props.theme.breakpoints.md} {
     display: none;
   }
 `;

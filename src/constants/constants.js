@@ -5,7 +5,7 @@ export const projects = [
     image: '/images/NetflixProject.png',
     tags: ['MongoDB', 'Express','React','Node.js'],
     source: 'https://github.com/ItayBinayev/netflix-frontend',
-    visit: 'https://netflix-frontend-phi.vercel.app/',
+    visit: '',
     id: 0,
   },
   {
