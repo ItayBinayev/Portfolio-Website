@@ -12,8 +12,7 @@ const OrbWrapper = styled.div`
   overflow: visible;
 
   @media ${props => props.theme.breakpoints.sm} {
-    min-height: 220px;
-    margin-top: 8px;
+    display: none;
   }
 `;
 

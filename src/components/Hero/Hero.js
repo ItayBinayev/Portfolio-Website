@@ -22,7 +22,7 @@ const Hero = () => (
     </HeroDescription>
     <ButtonRow>
       <Button onClick={handleDownload}>Download CV</Button>
-      <SecondaryBtn as="a" href="#projects" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>View Projects</SecondaryBtn>
+      <SecondaryBtn as="a" href="#projects" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>View Projects</SecondaryBtn>
     </ButtonRow>
   </LeftSection>
 );
