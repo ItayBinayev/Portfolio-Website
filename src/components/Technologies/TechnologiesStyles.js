@@ -4,7 +4,7 @@ export const BentoGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.6rem;
-  margin: 0 0 3.2rem;
+  margin: 0 0 4rem;
 
   @media ${props => props.theme.breakpoints.md} {
     grid-template-columns: repeat(2, 1fr);

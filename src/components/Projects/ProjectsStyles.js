@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const GridContainer = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  padding: 2rem 0 3rem;
+  padding: 2rem 0 4rem;
   column-gap: 2.4rem;
   row-gap: 2.4rem;
 
